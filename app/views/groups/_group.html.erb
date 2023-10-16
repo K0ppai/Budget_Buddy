@@ -6,11 +6,7 @@
   <p>
     <strong>Icon:</strong>
     <% if group.icon.attached? %>
-      <%= image_tag(group.icon, class: "w-50 h-50") %>
+      <%= image_tag(group.icon, class: "w-25") %>
     <% end %>
-  </p>
-  <p>
-    <strong>User:</strong>
-    <%= group.author_id %>
   </p>
 </div>

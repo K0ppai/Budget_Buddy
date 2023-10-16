@@ -2,10 +2,9 @@
 <div id="groups">
   <% @groups.each do |group| %>
     <% if can? :read, group %>
-      <%= render group %>
-      <p>
-        <%= link_to "Show this group", group %>
-      </p>
+      <a href="<%= group_path(id: group) %>">
+        <%= render group %>
+      </a>
     <% end %>
   <% end %>
 </div>
