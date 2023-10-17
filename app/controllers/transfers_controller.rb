@@ -23,11 +23,11 @@ class TransfersController < ApplicationController
     @group = Group.find(params[:group_id])
     @transfer = @group.transfers.new(transfer_params)
     @transfer.user = current_user
-    
+
     respond_to do |format|
       if @transfer.save
         TransferGroup.create(group: @group, transfer: @transfer)
-        format.html { redirect_to group_path(@group), notice: 'Transfer was successfully created.' }
+        format.html { redirect_to group_path(@group), notice: "Transfer was successfully created." }
         format.json { render :show, status: :created, location: @transfer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class TransfersController < ApplicationController
   def update
     respond_to do |format|
       if @transfer.update(transfer_params)
-        format.html { redirect_to transfer_url(@transfer), notice: 'Transfer was successfully updated.' }
+        format.html { redirect_to transfer_url(@transfer), notice: "Transfer was successfully updated." }
         format.json { render :show, status: :ok, location: @transfer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class TransfersController < ApplicationController
     @transfer.destroy
 
     respond_to do |format|
-      format.html { redirect_to transfers_url, notice: 'Transfer was successfully destroyed.' }
+      format.html { redirect_to transfers_url, notice: "Transfer was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -68,6 +68,6 @@ class TransfersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transfer_params
-    params.require(:transfer).permit(:name, :amount)
+    params.require(:transfer).permit(:name, :amount, :author_id)
   end
 end
