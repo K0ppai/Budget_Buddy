@@ -20,7 +20,7 @@ class TransfersController < ApplicationController
 
   # POST /transfers or /transfers.json
   def create
-    @group = Group.find(params[:group_id])
+    @group = Group.find(params[:transfer][:selected_group_id])
     @transfer = @group.transfers.new(transfer_params)
     @transfer.user = current_user
 

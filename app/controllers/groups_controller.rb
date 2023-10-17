@@ -1,26 +1,21 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
 
-  # GET /groups or /groups.json
   def index
     @groups = Group.includes(:user, :icon_attachment).all.preload(icon_attachment: :blob)
   end
 
-  # GET /groups/1 or /groups/1.json
   def show
     group = Group.find(params[:id])
-    @transfers = group.transfers
+    @transfers = group.transfers.order(created_at: :desc)
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit; end
 
-  # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
     @group.user = current_user
@@ -36,7 +31,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /groups/1 or /groups/1.json
   def update
     respond_to do |format|
       if @group.update(group_params)
@@ -49,7 +43,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
 
