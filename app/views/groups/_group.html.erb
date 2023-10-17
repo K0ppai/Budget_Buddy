@@ -6,7 +6,8 @@
   <p>
     <strong>Icon:</strong>
     <% if group.icon.attached? %>
-      <%= image_tag(group.icon, class: "w-25") %>
+      <%= image_tag(group.icon, class: "w-25", alt: "#{group.name}") %>
     <% end %>
   </p>
+  <p>Total: <%= group.total_tranfers %></p>
 </div>

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :group do
-    name { "Group" }
+    name { "KFC" }
     association :user, factory: :user
 
     after(:build) do |group|

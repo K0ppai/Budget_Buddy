@@ -8,10 +8,9 @@ class Group < ApplicationRecord
   validate :icon_is_image
   
   def total_tranfers
-    transfers.sum(:amount)
+    transfers.sum(:amount).to_f
   end
   
-
   private
 
   def icon_is_image
