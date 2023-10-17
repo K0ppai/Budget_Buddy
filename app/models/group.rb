@@ -6,6 +6,11 @@ class Group < ApplicationRecord
 
   validates :name, presence: true, length: { in: 1..100 }
   validate :icon_is_image
+  
+  def total_tranfers
+    transfers.sum(:amount)
+  end
+  
 
   private
 
