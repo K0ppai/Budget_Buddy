@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :group do
     name { "KFC" }
-    association :user, factory: :user
+    user
 
     after(:build) do |group|
       group.icon.attach(io: File.open("./spec/fixtures/files/kfc.png"), filename: "kfc.png", content_type: "image/png")
@@ -10,12 +10,12 @@ FactoryBot.define do
 
   factory :group_without_icon, class: "Group" do
     name { "Group Without Icon" }
-    association :user, factory: :user
+    user
   end
 
   factory :group_with_non_image_icon, class: "Group" do
     name { "Group With Non-Image Icon" }
-    association :user, factory: :user
+    user
 
     after(:build) do |group|
       group.icon.attach(io: File.open("./spec/fixtures/files/test.txt"), filename: "test.txt", content_type: "text/plain")

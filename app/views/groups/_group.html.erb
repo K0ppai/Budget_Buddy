@@ -1,13 +1,13 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-  <p>
-    <strong>Icon:</strong>
-    <% if group.icon.attached? %>
-      <%= image_tag(group.icon, class: "w-25", alt: "#{group.name}") %>
-    <% end %>
-  </p>
-  <p>Total: <%= group.total_tranfers %></p>
-</div>
+<li id="<%= dom_id group %>" class="list-unstyled">
+  <div class="row align-items-center mb-3 py-2 border border-1 mx-3">
+    <span class="col-3">
+      <% if group.icon.attached? %>
+        <%= image_tag(group.icon, class: "w-100", alt: "#{group.name}") %>
+      <% end %>
+    </span>
+    <span class="col-6">
+      <%= group.name %>
+    </span>
+    <span class="col-3"><%= group.total_tranfers %></span>
+  </div>
+</li>
