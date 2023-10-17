@@ -39,6 +39,11 @@ RSpec.describe "/groups", type: :request do
       get new_group_url
       expect(response).to be_successful
     end
+
+    it "renders a correct template" do
+      get new_group_url
+      expect(response).to render_template(:new)
+    end
   end
 
   describe "GET /edit" do

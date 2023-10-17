@@ -23,10 +23,10 @@ class TransfersController < ApplicationController
     @group = Group.find(params[:group_id])
     @transfer = @group.transfers.new(transfer_params)
     @transfer.user = current_user
-    TransferGroup.create(group: @group, transfer: @transfer)
-
+    
     respond_to do |format|
       if @transfer.save
+        TransferGroup.create(group: @group, transfer: @transfer)
         format.html { redirect_to group_path(@group), notice: 'Transfer was successfully created.' }
         format.json { render :show, status: :created, location: @transfer }
       else

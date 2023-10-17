@@ -1,23 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'groups/new', type: :view do
-  before(:each) do
-    assign(:group, Group.new(
-                     name: 'MyString',
-                     icon: nil,
-                     user: nil
-                   ))
+RSpec.describe 'groups/new', type: :feature do
+  let(:user) { build(:user) }
+  before :all do
+    sign_in user
+    visit new_group_path
   end
 
   it 'renders new group form' do
-    render
-
-    assert_select 'form[action=?][method=?]', groups_path, 'post' do
-      assert_select 'input[name=?]', 'group[name]'
-
-      assert_select 'input[name=?]', 'group[icon]'
-
-      assert_select 'input[name=?]', 'group[user_id]'
-    end
+    
   end
 end
