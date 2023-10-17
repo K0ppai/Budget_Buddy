@@ -4,7 +4,7 @@
 <% @transfers.each do |transfer| %>
   <li class="row">
     <span class="col-6 text-center"><%= transfer.name %></span>
-    <span class="col-6 text-center"><%= transfer.amount %></span>
+    <span class="col-6 text-center">$<%= transfer.amount %></span>
   </li>  
 <% end %>
 </ul>
@@ -16,5 +16,8 @@
 
   <%= button_to "Destroy this group", @group, method: :delete %>
 </div>
+
+<%= link_to "New transfer", new_group_transfer_path(@group) %>
+
 
 

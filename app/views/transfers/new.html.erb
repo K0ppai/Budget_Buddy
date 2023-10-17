@@ -1,9 +1,9 @@
 <h1>New transfer</h1>
 
-<%= render "form", transfer: @transfer %>
+<%= render "form", transfer: @transfer, group: @group %>
 
 <br>
 
 <div>
-  <%= link_to "Back to transfers", transfers_path %>
+  <%= link_to "Back to transfers", group_transfers_path(@group) %>
 </div>

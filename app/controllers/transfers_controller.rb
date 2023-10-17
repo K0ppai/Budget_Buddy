@@ -1,5 +1,5 @@
 class TransfersController < ApplicationController
-  before_action :set_transfer, only: %i[show edit update destroy]
+  # before_action :set_transfer, only: %i[show edit create update destroy]
 
   # GET /transfers or /transfers.json
   def index
@@ -12,6 +12,7 @@ class TransfersController < ApplicationController
   # GET /transfers/new
   def new
     @transfer = Transfer.new
+    @group = Group.find(params[:group_id])
   end
 
   # GET /transfers/1/edit
@@ -19,11 +20,14 @@ class TransfersController < ApplicationController
 
   # POST /transfers or /transfers.json
   def create
-    @transfer = Transfer.new(transfer_params)
+    @group = Group.find(params[:group_id])
+    @transfer = @group.transfers.new(transfer_params)
+    @transfer.user = current_user
+    TransferGroup.create(group: @group, transfer: @transfer)
 
     respond_to do |format|
       if @transfer.save
-        format.html { redirect_to transfer_url(@transfer), notice: 'Transfer was successfully created.' }
+        format.html { redirect_to group_path(@group), notice: 'Transfer was successfully created.' }
         format.json { render :show, status: :created, location: @transfer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +68,6 @@ class TransfersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transfer_params
-    params.require(:transfer).permit(:name, :amount, :user_id)
+    params.require(:transfer).permit(:name, :amount)
   end
 end

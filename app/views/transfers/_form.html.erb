@@ -1,4 +1,4 @@
-<%= form_with(model: transfer) do |form| %>
+<%= form_with(model: transfer, url: group_transfers_path(group_id: group)) do |form| %>
   <% if transfer.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
@@ -18,15 +18,10 @@
 
   <div>
     <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+    <%= form.number_field :amount %>
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Save" %>
   </div>
 <% end %>
