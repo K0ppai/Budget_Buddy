@@ -1,23 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe 'transfers/new', type: :view do
-  before(:each) do
-    assign(:transfer, Transfer.new(
-                        name: 'MyString',
-                        amount: '9.99',
-                        user: nil
-                      ))
-  end
+RSpec.describe 'transfers/new', type: :feature do
+  let(:user) { build(:user) }
+  let(:group) { create(:group, user:) }
 
-  it 'renders new transfer form' do
-    render
-
-    assert_select 'form[action=?][method=?]', transfers_path, 'post' do
-      assert_select 'input[name=?]', 'transfer[name]'
-
-      assert_select 'input[name=?]', 'transfer[amount]'
-
-      assert_select 'input[name=?]', 'transfer[user_id]'
+  describe "When creating a new group" do
+    before :each do
+      sign_in user
+      visit new_group_transfer_path(group)
+    end
+    
+    it "renders new group form" do
+      fill_in "transfer_name", with: "Test"
+      fill_in "transfer_amount", with: "10"
+      select "KFC", from: 'group-select'
+      click_on 'Save'
+      expect(page).to have_text("KFC")
+      expect(page).to have_text("10")
     end
   end
 end
