@@ -13,10 +13,16 @@
         </tr>
       </thead>
       <tbody>
-        <% @transfers.each do |transfer| %>
+        <% if @transfers.any? %>
+          <% @transfers.each do |transfer| %>
+            <tr>
+              <td class="text-center border text-gray-600 p-1"><%= transfer.name %></td>
+              <td class="text-center border text-text_color font-semibold p-1">$<%= transfer.amount %></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td class="text-center border text-gray-600 p-1"><%= transfer.name %></td>
-            <td class="text-center border text-text_color font-semibold p-1">$<%= transfer.amount %></td>
+            <td colspan="2" class="text-center border text-gray-600 p-1">No transfers yet.</td>
           </tr>
         <% end %>
       </tbody>

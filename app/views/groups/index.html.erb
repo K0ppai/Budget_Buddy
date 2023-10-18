@@ -1,12 +1,15 @@
 <h1 class="text-center my-4">Categories</h1>
-
 <div id="groups">
-  <% @groups.each do |group| %>
-    <% if can? :read, group %>
-      <a href="<%= group_path(id: group) %>" class="text-decoration-none text-black">
-        <%= render group %>
-      </a>
+  <% if @groups.any? %>
+    <% @groups.each do |group| %>
+      <% if can? :read, group %>
+        <a href="<%= group_path(id: group) %>" class="text-decoration-none text-black">
+          <%= render group %>
+        </a>
+      <% end %>
     <% end %>
+  <% else %>
+    <p class="text-center">No categories yet.</p>
   <% end %>
 </div>
 <div class="bg-main fixed bottom-0 w-full">
