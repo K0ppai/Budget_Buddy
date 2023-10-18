@@ -78,3 +78,5 @@ group :test do
 end
 
 gem "bullet", "~> 7.1"
+
+gem "tailwindcss-rails", "~> 2.0"

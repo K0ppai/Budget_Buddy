@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>">Link</a>
+          <a class="nav-link" href="<%= authenticated_root_path %>">Link</a>
           <%= button_to "Log out", destroy_user_session_path, method: "delete", class: "nav-link active" %>
         </li>
         <li class="nav-item dropdown">
