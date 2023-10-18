@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
 
   def index
-    @groups = Group.all.any? ? Group.includes(:user, :icon_attachment).all.preload(icon_attachment: :blob) : Group.all
+    @groups = current_user.groups.includes(:user, :icon_attachment).all.preload(icon_attachment: :blob)
   end
 
   def show
