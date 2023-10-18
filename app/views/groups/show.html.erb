@@ -1,0 +1,39 @@
+<section>
+  <%= render @group %>
+  <div class="px-3 mb-[90px]">
+    <table class="w-full box-border">
+      <thead>
+        <tr>
+          <th class="text-center border p-2">
+            Name
+          </th>
+          <th class="text-center border p-2">
+            Amount
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @transfers.any? %>
+          <% @transfers.each do |transfer| %>
+            <tr>
+              <td class="text-center border text-gray-600 p-1"><%= transfer.name %></td>
+              <td class="text-center border text-text_color font-semibold p-1">$<%= transfer.amount %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="2" class="text-center border text-gray-600 p-1">No transfers yet.</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="hidden">
+    <%= link_to "Edit this group", edit_group_path(@group) %> |
+    <%= link_to "Back to groups", groups_path %>
+    <%= button_to "Destroy this group", @group, method: :delete %>
+  </div>
+  <div class="bg-main fixed bottom-0 w-full">
+    <a href="<%= new_group_transfer_path(@group) %>" id='new-transfer-btn' class="block no-underline border border-white text-white p-3 m-3 rounded-[4px] text-center">New Transation</a>
+  </div>
+</section>

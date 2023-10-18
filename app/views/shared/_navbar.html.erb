@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <% if request.path == '/users/sign_in' %>
+      <h1 class="navbar-brand">Log In</h1>
+    <% elsif request.path == '/users/sign_up' %>
+      <h1 class="navbar-brand">Sign Up</h1>
+    <% end %>
+    <% if request.path == '/groups/new' || request.path.match?(/^\/groups\/\d+\/transfers\/new$/) || request.path.match?(/^\/groups\/\d+$/) %>
+      <a href="<%= authenticated_root_path %>">
+        <i class="bi bi-chevron-left navbar-brand"></i>
+      </a>
+    <% end %>
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= authenticated_root_path %>">Home</a>
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= button_to "Log out", destroy_user_session_path, method: "delete", class: "nav-link active" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

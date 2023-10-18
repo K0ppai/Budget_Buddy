@@ -1,0 +1,13 @@
+<li id="<%= dom_id group %>" class="list-unstyled">
+  <div class="row align-items-center mb-3 py-2 border border-1 mx-3">
+    <span class="col-3">
+      <% if group.icon.attached? %>
+        <%= image_tag(group.icon, class: "w-[60px] h-[60px]", alt: "#{group.name}") %>
+      <% end %>
+    </span>
+    <span class="col-6 text-gray-600">
+      <%= group.name %>
+    </span>
+    <span class="col-3 font-bold text-text_color">$<%= group.total_tranfers %></span>
+  </div>
+</li>
