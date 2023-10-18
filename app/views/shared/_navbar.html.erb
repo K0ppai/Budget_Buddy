@@ -5,7 +5,7 @@
     <% elsif request.path == '/users/sign_up' %>
       <h1 class="navbar-brand">Sign Up</h1>
     <% end %>
-    <% if request.path == '/groups/new' || request.path.match?(/^\/groups\/\d+\/transfers\/new$/) %>
+    <% if request.path == '/groups/new' || request.path.match?(/^\/groups\/\d+\/transfers\/new$/) || request.path.match?(/^\/groups\/\d+$/) %>
       <a href="<%= authenticated_root_path %>">
         <i class="bi bi-chevron-left navbar-brand"></i>
       </a>
