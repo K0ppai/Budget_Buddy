@@ -5,7 +5,8 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
+    '!./app/views/shared/_navbar.html.erb'
   ],
   theme: {
     extend: {
@@ -15,8 +16,8 @@ module.exports = {
       colors: {
         main: '#5fb523',
         second: '#3778c2',
-        text_color: '#434b54'
-      }
+        text_color: '#434b54',
+      },
     },
   },
   plugins: [
@@ -24,5 +25,5 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
-  ]
-}
+  ],
+};
