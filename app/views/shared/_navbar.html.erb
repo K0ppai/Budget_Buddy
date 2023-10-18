@@ -1,26 +1,39 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-second">
+  <div class="container-fluid d-flex justify-content-between">
     <% if request.path == '/users/sign_in' %>
-      <h1 class="navbar-brand">Log In</h1>
+      <div class="custom-w flex justify-content-center">
+        <h2 class="text-white mb-0 ">Log In</h2>
+      </div>
     <% elsif request.path == '/users/sign_up' %>
-      <h1 class="navbar-brand">Sign Up</h1>
+      <div class="custom-w flex justify-content-center">
+        <h2 class="text-white mb-0 ">Sign Up</h2>
+      </div>
     <% end %>
     <% if request.path == '/groups/new' || request.path.match?(/^\/groups\/\d+\/transfers\/new$/) || request.path.match?(/^\/groups\/\d+$/) %>
       <a href="<%= authenticated_root_path %>">
-        <i class="bi bi-chevron-left navbar-brand"></i>
+        <i class="bi bi-arrow-left text-white text-xl" style="font-size: 1.8rem;"></i>
       </a>
     <% end %>
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <% if request.path == '/' %>
+      <div class="custom-w flex justify-content-center">
+        <h2 class="text-white mb-0 ">Categories</h2>
+      </div>
+    <% elsif request.path.match?(/^\/groups\/\d+$/) %>
+      <div>
+        <h2 class="text-white mb-0">Transactions</h2>
+      </div>
+    <% end %>
+    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<%= authenticated_root_path %>">Home</a>
+          <a class="nav-link active text-white" aria-current="page" href="<%= authenticated_root_path %>">Home</a>
         </li>
         <li class="nav-item">
           <% if user_signed_in? %>
-            <%= button_to "Log out", destroy_user_session_path, method: "delete", class: "nav-link active" %>
+            <%= button_to "Log out", destroy_user_session_path, method: "delete", class: "nav-link active text-white" %>
           <% end %>
         </li>
       </ul>

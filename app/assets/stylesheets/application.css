@@ -14,3 +14,15 @@
  *= require_self
  */
 @import "font-awesome";
+
+.bg-body-tertiary {
+  background-color: unset !important;
+}
+
+.bg-second {
+  background-color: #3778c2;
+}
+
+.custom-w {
+  width: 84%;
+}

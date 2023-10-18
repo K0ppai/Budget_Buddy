@@ -1,5 +1,4 @@
-<h1 class="text-center my-4">Categories</h1>
-<div id="groups" class="mb-[90px]">
+<div id="groups" class="mb-[90px] mt-3">
   <% if @groups.empty? %>
     <p class="text-center">No categories yet.</p>
   <% else %>
@@ -13,5 +12,5 @@
   <% end %>
 </div>
 <div class="bg-main fixed bottom-0 w-full">
-  <a href="<%= new_group_path %>" id="new-group-btn" class="block no-underline border border-white text-white p-3 m-3 rounded-[4px] text-center">New Category</a>
+  <a href="<%= new_group_path %>" id="new-group-btn" class="block no-underline border border-white text-xl text-white p-3 m-3 rounded-[4px] text-center">New Category</a>
 </div>
