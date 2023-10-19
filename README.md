@@ -13,6 +13,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [💁 Video Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Install](#install)
@@ -62,6 +63,13 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo](https://beta-budget-buddy.onrender.com)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💁 Video Presentation <a name="video-presentation"></a>
+
+
+- Link: [Video](https://youtu.be/5vEYDD48D4E)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
