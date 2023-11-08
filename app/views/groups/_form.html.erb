@@ -1,0 +1,22 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div class="text-red-500">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mt-4">
+    <%= form.text_field :name, placeholder: "Name", class: "w-full px-4 py-2 border" %>
+  </div>
+  <div class="mt-4">
+    <%= form.label :icon, "Choose an icon(must be an image type)", style: "display: block",class: "text-gray-400"  %>
+    <%= form.file_field :icon, class: "w-full px-4 py-2 border" %>
+  </div>
+  <div class="mt-4">
+    <%= form.submit "Save", class: "px-4 py-2 w-[50%] bg-main text-white p-3 rounded-[4px] text-center text-white cursor-pointer" %>
+  </div>
+<% end %>
