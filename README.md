@@ -62,7 +62,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://beta-budget-buddy.onrender.com)
+- Live Demo is not available for now. Please run the app locally.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💁 Video Presentation <a name="video-presentation"></a>
